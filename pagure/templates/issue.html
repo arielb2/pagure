@@ -327,7 +327,7 @@ $(function() {
   });
 
 });
-
+{% if config['REDIS_EVENTSOURCE'] %}
 var source = null;
 if (!!window.EventSource) {
   source = new EventSource('{{
@@ -495,6 +495,7 @@ source.addEventListener('message', function(e) {
   }
 
 }, false);
+{% endif %}
 
 </script>
 
